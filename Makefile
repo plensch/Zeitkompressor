@@ -1,12 +1,15 @@
 CC = gcc
 OBJECTS = tempomap.c stb_image.h stb_image_write.h
-CFLAGS = -Wall -Wextra -O2
+SAFE = -Wall -Wextra -O2 -fsanitize=address
+FAST = -O3
 LIBS = -lm
 #BINDIR = $(DESTDIR)/usr/bin
 NAME = tempomap
 
-tempomap: $(OBJECTS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) $(LIBS)
+safe: $(OBJECTS)
+	$(CC) $(SAFE) -o $(NAME) $(OBJECTS) $(LIBS)
+fast: $(OBJECTS)
+	$(CC) $(FAST) -o $(NAME) $(OBJECTS) $(LIBS)
 run: tempomap
 	./$(NAME)
 clean:

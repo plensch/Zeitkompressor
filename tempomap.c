@@ -6,46 +6,56 @@
 
 /*
  * TODO
- * check if canvas and images are openen (p != 0)
- * check if all images have the same size
  */
 
 int main (int argc, char *argv[]) {
+    if (argc < 3) {
+        fprintf(stderr, "Usage: %s [map] [image sequence folder]\n"
+                        "Images in the sequence should be labeled: 000.bmp, 001.bmp ... 255.bmp\n", argv[0]);
+        return 1;
+    }
+
+
     // images
     unsigned char *imgs[256] = {0};
 
-    // load canvas
+    // load map
     int cx,cy,cn;
-    unsigned char *map = stbi_load("in.bmp", &cx, &cy, &cn, 0);
-    /* printf("%d %d %d\n", cx, cy, cn); */
+    unsigned char *map = stbi_load(argv[1], &cx, &cy, &cn, 0);
+    if (map == 0) {
+        fprintf(stderr, "Could not open map %s\n", argv[1]);
+        return 1;
+    }
 
     // load images
     int x,y,n;
     char imgpath[13];
     for (unsigned int i = 0; i < 256; i++) {
-        sprintf(imgpath, "imgs/%03d.bmp",i);
+        sprintf(imgpath, "%s/%03d.bmp",argv[2], i);
         imgs[i] = stbi_load(imgpath, &x, &y, &n, 0);
-        /* printf("%d %d %d %d %s\n", x, y, n, i, imgpath); */
+        if (imgs[i] == 0) {
+            fprintf(stderr, "Could not open image %s\n", imgpath);
+            return 1;
+        }
+        if ((n != cn) || (y != cy) || (x != cx)) {
+            fprintf(stderr, "Image format does not match map (width, height, channels): %s\n", imgpath);
+            return 1;
+        }
     }
 
-    // create map
-    /* unsigned char *canvas = malloc(gray_img_size); */
-    /* size_t canvassize = cx * cy * cn * 3; */
-
-    // magic
+    // map image sequence to canvas
     unsigned char gray = 0;
     unsigned char *p = map;
     for (unsigned int i = 0; i < (cx*cy*cn); i += cn) {
         gray = (*(p+i) * *(p+i+1) * *(p+i+2)) / 3;
-        *(p+i) = *(imgs[gray]+i);
+        *(p+i)   = *(imgs[gray]+i);
         *(p+i+1) = *(imgs[gray]+i+1);
         *(p+i+2) = *(imgs[gray]+i+2);
     }
 
+    // free images
     stbi_write_bmp("out.bmp", cx, cy, cn, map);
     stbi_image_free(map);
-
-    // free images
     for (unsigned int i = 0; i < 256; i++) {
         stbi_image_free(imgs[i]);
     }
