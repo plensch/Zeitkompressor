@@ -9,8 +9,8 @@
  */
 
 int main (int argc, char *argv[]) {
-    if (argc < 3) {
-        fprintf(stderr, "Usage: %s [map] [image sequence folder]\n"
+    if (argc < 4) {
+        fprintf(stderr, "Usage: %s [map] [image sequence folder] [iterations]\n"
                         "Images in the sequence should be labeled: 000.bmp, 001.bmp ... 255.bmp\n", argv[0]);
         return 1;
     }
@@ -44,13 +44,15 @@ int main (int argc, char *argv[]) {
     }
 
     // map image sequence to canvas
-    unsigned char gray = 0;
-    unsigned char *p = map;
-    for (unsigned int i = 0; i < (cx*cy*cn); i += cn) {
-        gray = (*(p+i) * *(p+i+1) * *(p+i+2)) / 3;
-        *(p+i)   = *(imgs[gray]+i);
-        *(p+i+1) = *(imgs[gray]+i+1);
-        *(p+i+2) = *(imgs[gray]+i+2);
+    for (int i = 0; i < atoi(argv[3]); i++) {
+        unsigned char gray = 0;
+        unsigned char *p = map;
+        for (unsigned int i = 0; i < (cx*cy*cn); i += cn) {
+            gray = (*(p+i) * *(p+i+1) * *(p+i+2)) / 3;
+            *(p+i)   = *(imgs[gray]+i);
+            *(p+i+1) = *(imgs[gray]+i+1);
+            *(p+i+2) = *(imgs[gray]+i+2);
+        }
     }
 
     // free images

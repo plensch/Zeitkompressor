@@ -2,7 +2,7 @@
 Maps an image sequence to a canvas using the pixel values of a grayscale map as time reference.
 
 ##### Usage
-`./tempomap [map] [image sequence]`
+`./tempomap [map] [image sequence] [iterations]`
 
 #### Build
 `make safe`<br/>
