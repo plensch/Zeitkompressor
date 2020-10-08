@@ -1,4 +1,5 @@
-*
+/*
+!/examples
 !*.c
 !*.h
 !Makefile
