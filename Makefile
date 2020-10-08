@@ -2,7 +2,7 @@ CC = gcc
 OBJECTS = tempomap.c stb_image.h stb_image_write.h
 SAFE = -Wall -Wextra -O2 -fsanitize=address
 FAST = -O3
-LIBS = -lm
+LIBS = -lm -pthread
 #BINDIR = $(DESTDIR)/usr/bin
 NAME = tempomap
 
