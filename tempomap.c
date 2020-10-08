@@ -8,9 +8,15 @@
  * TODO
  */
 
+/*
+ * ASSUMPTIONS:
+ * three channel bitmap images (RGB)
+ * 256 images in image sequence
+ */
+
 int main (int argc, char *argv[]) {
-    if (argc < 4) {
-        fprintf(stderr, "Usage: %s [map] [image sequence folder] [iterations]\n"
+    if (argc < 5) {
+        fprintf(stderr, "Usage: %s [map] [image sequence folder] [iterations] [out]\n"
                         "Images in the sequence should be labeled: 000.bmp, 001.bmp ... 255.bmp\n", argv[0]);
         return 1;
     }
@@ -56,7 +62,7 @@ int main (int argc, char *argv[]) {
     }
 
     // free images
-    stbi_write_bmp("out.bmp", cx, cy, cn, map);
+    stbi_write_bmp(argv[4], cx, cy, cn, map);
     stbi_image_free(map);
     for (unsigned int i = 0; i < 256; i++) {
         stbi_image_free(imgs[i]);
