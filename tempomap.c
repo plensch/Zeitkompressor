@@ -34,7 +34,7 @@ int tm_load (unsigned char **imgs, char *imgs_path, int *unique, int rgb, int cx
     char imgpath[256]; // TODO make dynamic
     for (int i = 0; i < 256; i++) {
         if (rgb ? 1 : unique[i]) { 
-            sprintf(imgpath, "%s/%03d.bmp",imgs_path, i);
+            sprintf(imgpath, "%s%03d.bmp",imgs_path, i);
             imgs[i] = stbi_load(imgpath, &x, &y, &n, 0);
             if (imgs[i] == 0) {
                 fprintf(stderr, "Could not open image %s\n", imgpath);
