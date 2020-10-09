@@ -20,8 +20,12 @@ three channel bitmap images (RGB)<br/>
 256 images in image sequence
 
 #### Build
-On Linux:
-`make`
+On Linux:<br/>
+For Linux: `make`<br/>
+For Windows `make windows`
+
+#### Releases
+Static binaries are available for Linux and Windows at [Releases](https://github.com/plensch/tempomap/releases/tag/v0.1r)
 
 #### Dependencies
 stb_image.h and stb_image_write.h from the awesome [stb libraries](https://github.com/nothings/stb) (included in repo)
