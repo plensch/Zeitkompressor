@@ -20,9 +20,8 @@ three channel bitmap images (RGB)<br/>
 256 images in image sequence
 
 #### Build
-`make safe`<br/>
-or <br/>
-`make fast` around 20% faster, thanks to gcc
+On Linux:
+`make`
 
 #### Dependencies
-stb_image.h and stb_image_write.h from the awesome [stb libraries](https://github.com/nothings/stb) (included in repo).
+stb_image.h and stb_image_write.h from the awesome [stb libraries](https://github.com/nothings/stb) (included in repo)

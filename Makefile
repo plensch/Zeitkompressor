@@ -1,16 +1,16 @@
 CC = gcc
+WINCC = x86_64-w64-mingw32-gcc
 OBJECTS = tempomap.c stb_image.h stb_image_write.h
-SAFE = -Wall -Wextra -O2 -fsanitize=address
-FAST = -O3
+SAFE = -Wall -Wextra -fsanitize=address
+FAST = -O3 -static -s
 LIBS = -lm
-#BINDIR = $(DESTDIR)/usr/bin
 NAME = tempomap
 
-safe: $(OBJECTS)
-	$(CC) $(SAFE) -o $(NAME) $(OBJECTS) $(LIBS)
 fast: $(OBJECTS)
 	$(CC) $(FAST) -o $(NAME) $(OBJECTS) $(LIBS)
-run: tempomap
-	./$(NAME)
+safe: $(OBJECTS)
+	$(CC) $(SAFE) -o $(NAME) $(OBJECTS) $(LIBS)
+windows: $(OBJECTS)
+	$(WINCC) $(FAST) -o $(NAME).exe $(OBJECTS) $(LIBS)
 clean:
 	rm $(NAME)
