@@ -13,11 +13,11 @@ converted to bitmap image sequence with ffmpeg:<br/>
 `ffmpeg -i jellyfish.mkv -vframes 256 -start_number 0 imgs/%03d.bmp`
 
 `./tempomap imgs/000.bmp imgs/ 1 1 1 examples/` (one iteration in rgb-sequence-mode)<br/>
-![exmaple 1](examples/out_rgb_sequence.gif)
+![exmaple 1](examples/out_rgb_sequence.gif)<br/>
 `./tempomap imgs/000.bmp imgs/ 4 1 0 examples/out_rgb.bmp` (four iterations in rgb-mode)<br/>
-![exmaple 1](examples/out_rgb.bmp)
+![exmaple 1](examples/out_rgb.bmp)<br/>
 `./tempomap imgs/000.bmp imgs 1 0 0 examples/out_gray.bmp` (one iteration in grayscale-mode)<br/>
-![exmaple 2](examples/out_gray.bmp)
+![exmaple 2](examples/out_gray.bmp)<br/>
 
 #### Assumptions
 three channel bitmap images (RGB)<br/>
