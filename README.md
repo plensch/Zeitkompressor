@@ -1,6 +1,10 @@
 # tempomap
 Maps an image sequence to a canvas using the pixel values of a grayscale map as time reference.
 
+I seems that this idea has been around for some time:<br/>
+[t-morph - Roman Haefeli](http://www.romanhaefeli.net/projekte/out_of_frame/index.php)<br/>
+[tx-transform - Martin Reinhart ](http://www.tx-transform.com/Eng/index.html)<br/>
+
 #### Usage
 `./tempomap [map] [image sequence] [iterations] [rgb/grayscale] [out]`<br/>
 (rgb = 1, grayscale = 0)<br/>
