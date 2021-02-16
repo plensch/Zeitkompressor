@@ -1,11 +1,11 @@
 CC = gcc
 WINCC = x86_64-w64-mingw32-gcc
-OBJECTS = tempomap.c stb_image.h stb_image_write.h
+OBJECTS = zeitkompressor.c stb_image.h stb_image_write.h
 SAFE = -Wall -Wextra -fsanitize=address
 CHECK = -fsyntax-only -Wall -Wextra
 FAST = -O3 -static -s
 LIBS = -lm
-NAME = tempomap
+NAME = zeitkompressor
 
 fast: $(OBJECTS)
 	$(CC) $(FAST) -o $(NAME) $(OBJECTS) $(LIBS)
