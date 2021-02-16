@@ -1,4 +1,4 @@
-<p align="center">
+<p>
   <img src="icon.svg" alt="Icon" width="80"/>
   <h1>Zeitkompressor</h1>
 </p>
