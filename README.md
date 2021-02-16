@@ -1,5 +1,5 @@
-# Zeitkompressor
-![icon](icon.svg){:height="36px" width="36px"}.
+# Zeitkompressor <img src="icon.svg" alt="Icon" width="64"/>
+
 Maps an image sequence to a canvas using the pixel values of a grayscale map as time reference.
 
 I seems that this idea has been around for some time:<br/>
