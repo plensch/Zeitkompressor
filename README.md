@@ -10,7 +10,7 @@ I seems that this idea has been around for some time:<br>
 [tx-transform - Martin Reinhart ](http://www.tx-transform.com/Eng/index.html)<br>
 
 #### Usage
-`./tempomap [map] [image sequence] [iterations] [rgb/grayscale] [out]`<br>
+`./zeitkompressor [map] [image sequence] [iterations] [rgb/grayscale] [out]`<br>
 (rgb = 1, grayscale = 0)<br>
 (sequence = 1, static = 0)<br>
 When sequence = 1 then [out] should be a directory<br>
@@ -20,11 +20,11 @@ When sequence = 1 then [out] should be a directory<br>
 converted to bitmap image sequence with ffmpeg:<br>
 `ffmpeg -i jellyfish.mkv -vframes 256 -start_number 0 imgs/%03d.bmp`
 
-`./tempomap imgs/000.bmp imgs/ 1 1 1 examples/` (one iteration in rgb-sequence-mode)<br>
+`./zeitkompressor imgs/000.bmp imgs/ 1 1 1 examples/` (one iteration in rgb-sequence-mode)<br>
 ![exmaple 1](examples/out_rgb_sequence.gif)<br>
-`./tempomap imgs/000.bmp imgs/ 4 1 0 examples/out_rgb.bmp` (four iterations in rgb-mode)<br>
+`./zeitkompressor imgs/000.bmp imgs/ 4 1 0 examples/out_rgb.bmp` (four iterations in rgb-mode)<br>
 ![exmaple 1](examples/out_rgb.bmp)<br>
-`./tempomap imgs/000.bmp imgs 1 0 0 examples/out_gray.bmp` (one iteration in grayscale-mode)<br>
+`./zeitkompressor imgs/000.bmp imgs 1 0 0 examples/out_gray.bmp` (one iteration in grayscale-mode)<br>
 ![exmaple 2](examples/out_gray.bmp)<br>
 
 #### Assumptions
