@@ -37,3 +37,7 @@ Static binaries are available for Linux and Windows at [Releases](https://github
 
 #### Dependencies
 stb_image.h and stb_image_write.h from the awesome [stb libraries](https://github.com/nothings/stb) (included in repo)
+
+#### Icon
+[Compress by Gregor Cresnar from the Noun Project](https://thenounproject.com/search/?q=compress&i=3560877)
+
